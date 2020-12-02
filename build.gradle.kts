@@ -39,10 +39,6 @@ dependencies {
 	testImplementation("org.mockito:mockito-core:3.6.28")
 	testImplementation("org.mockito:mockito-inline:3.6.28")
 	testImplementation("com.nhaarman:mockito-kotlin:1.6.0")
-
-	// Rabbit
-	implementation("org.springframework.boot:spring-boot-starter-amqp")
-	testImplementation("org.springframework.amqp:spring-rabbit-test")
 }
 
 tasks.withType<KotlinCompile> {
