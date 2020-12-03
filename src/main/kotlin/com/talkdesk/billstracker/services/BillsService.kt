@@ -12,7 +12,8 @@ class BillsService(
 	fun findAll() = billsRepository.findAll()
 
 	fun delete(id: Int) {
-		TODO()
+		this.findById(id) // will throw NotFoundException if bill doesn't exist
+		billsRepository.deleteById(id)
 	}
 
 	fun create(bill: Bill): Bill = TODO()
