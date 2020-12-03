@@ -30,7 +30,7 @@ class RabbitConfiguration (private val rabbitProperties: RabbitProperties){
 class RabbitProperties{
     var username :String = "test"
     var password :String = "test"
-    var host :String = "localhost"
+    var host :String = "127.0.0.1"
     var port :Int = 5673
     var queueName :String = "stats"
 }
