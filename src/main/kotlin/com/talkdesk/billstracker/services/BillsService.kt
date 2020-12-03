@@ -17,7 +17,7 @@ class BillsService(
 			else throw NotFoundException()
 	}
 
-	fun findAll() = billsRepository.findAll()
+	fun findAll(): MutableIterable<Bill> = billsRepository.findAll()
 
 	fun delete(id: Int) {
 		findById(id)
