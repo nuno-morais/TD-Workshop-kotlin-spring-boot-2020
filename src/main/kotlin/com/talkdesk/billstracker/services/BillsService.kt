@@ -16,7 +16,7 @@ class BillsService(
 		billsRepository.deleteById(id)
 	}
 
-	fun create(bill: Bill): Bill = TODO()
+	fun create(bill: Bill): Bill = billsRepository.save(bill)
 
 	fun update(bill: Bill): Bill = TODO()
 }
