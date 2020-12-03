@@ -6,6 +6,9 @@ import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
 
+
+
+/*
 @Repository
 class BillsRepositoryImpl : BillsRepository {
 	private val index: AtomicInteger = AtomicInteger(0)
@@ -34,3 +37,5 @@ class BillsRepositoryImpl : BillsRepository {
 		storage.clear()
 	}
 }
+
+ */

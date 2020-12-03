@@ -1,9 +1,14 @@
 package com.talkdesk.billstracker.entities
 
 import org.jetbrains.annotations.NotNull
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
 
-
+@Entity
 data class Bill(
+	@Id
 	val id: Int? = null,
 	@NotNull
 	val description: String,
