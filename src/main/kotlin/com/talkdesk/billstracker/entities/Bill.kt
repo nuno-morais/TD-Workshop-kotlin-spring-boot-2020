@@ -1,8 +1,6 @@
 package com.talkdesk.billstracker.entities
 
-import javax.persistence.Entity
 
-@Entity
 data class Bill(
     val id: Int? = null,
     val description: String,

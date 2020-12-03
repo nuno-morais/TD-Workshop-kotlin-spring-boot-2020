@@ -19,11 +19,15 @@ class BillsService(
 
     fun findAll() = billsRepository.findAll()
 
-    fun delete(id: Int) {
+    fun delete(id: Int) = findById(id).run{
         billsRepository.deleteById(id)
     }
 
     fun create(bill: Bill): Bill = billsRepository.save(bill)
 
-    fun update(bill: Bill): Bill = billsRepository.save(bill)
+    fun update(bill: Bill): Bill = findById(bill.id!!).run {
+        billsRepository.save(bill)
+            }
+
+
 }
