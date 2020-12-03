@@ -1,5 +1,6 @@
 package com.talkdesk.billstracker.controllers
 
+import com.talkdesk.billstracker.exceptions.InvalidBodyException
 import com.talkdesk.billstracker.exceptions.NotFoundException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -20,6 +21,18 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
 		""".trimIndent()
 		return handleExceptionInternal(
 			exception, body, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request
+		)
+	}
+
+	@ExceptionHandler(InvalidBodyException::class)
+	fun handleInvalidBody(exception: InvalidBodyException, request: WebRequest): ResponseEntity<Any> {
+		val body = """
+			{
+			    "message": "Invalid body"
+			}
+		""".trimIndent()
+		return handleExceptionInternal(
+				exception, body, HttpHeaders(), HttpStatus.BAD_REQUEST, request
 		)
 	}
 
