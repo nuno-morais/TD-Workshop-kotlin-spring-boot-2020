@@ -18,5 +18,11 @@ class BillsService(
 
 	fun create(bill: Bill): Bill = billsRepository.save(bill)
 
-	fun update(bill: Bill): Bill = TODO()
+	fun update(bill: Bill): Bill {
+		if (bill.id == null) {
+			throw NotFoundException()
+		}
+		this.findById(bill.id) // will throw NotFoundException if bill doesn't exist
+		return billsRepository.save(bill)
+	}
 }
