@@ -1,19 +1,12 @@
 package com.talkdesk.billstracker.entities
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
+
 @Entity
-@Table
 data class Bill(
-		@Id
-		@Column(name = "id")
+		@Id @GeneratedValue(strategy = GenerationType.AUTO)
 		val id: Int? = null,
-		@Column(name = "description")
 		val description: String,
-		@Column(name = "price")
 		val price: Int,
-		@Column(name = "accountId")
 		val accountId: String
 ) {
 	override fun toString() =
