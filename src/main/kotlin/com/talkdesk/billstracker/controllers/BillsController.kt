@@ -24,10 +24,8 @@ class BillsController(
 		ResponseEntity(billsService.findById(id), HttpStatus.OK)
 
 	@PutMapping("/{id}")
-	fun update(@RequestBody bill: Bill, @PathVariable id: Int): ResponseEntity<Bill>{
-		bill.id ?: throw InvalidBodyException()
-		return ResponseEntity(billsService.update(bill.copy(id = id)), HttpStatus.OK)
-	}
+	fun update(@RequestBody bill: Bill, @PathVariable id: Int): ResponseEntity<Bill> =
+	        ResponseEntity(billsService.update(bill.copy(id = id)), HttpStatus.OK)
 
 	@DeleteMapping("/{id}")
 	fun delete(@PathVariable id: Int): ResponseEntity<Any> =
