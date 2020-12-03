@@ -23,13 +23,21 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("com.h2database:h2")
+
+	runtimeOnly("com.h2database:h2")
 
 	// Tests
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
 
 	testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.9")
+	testImplementation("com.h2database:h2")
+
 	testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:2.0.9")
+	testRuntimeOnly("org.springframework.boot:spring-boot-starter-data-jpa")
+	testRuntimeOnly("com.h2database:h2")
 
 	testImplementation("org.mockito:mockito-core:3.6.28")
 	testImplementation("org.mockito:mockito-inline:3.6.28")
