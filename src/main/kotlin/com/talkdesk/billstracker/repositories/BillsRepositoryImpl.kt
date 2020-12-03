@@ -1,10 +1,11 @@
 package com.talkdesk.billstracker.repositories
 
 import com.talkdesk.billstracker.entities.Bill
+import org.springframework.stereotype.Repository
 import java.util.Optional
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
-
+@Repository
 class BillsRepositoryImpl : BillsRepository {
 	private val index: AtomicInteger = AtomicInteger(0)
 	private val storage = ConcurrentHashMap<Int, Bill>()
