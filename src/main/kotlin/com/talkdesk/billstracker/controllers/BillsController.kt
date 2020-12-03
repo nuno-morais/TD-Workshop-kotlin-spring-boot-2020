@@ -5,6 +5,7 @@ import com.talkdesk.billstracker.services.BillsService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.websocket.server.PathParam
 
 @RequestMapping("bills")
 @RestController
@@ -19,15 +20,15 @@ class BillsController(
             ResponseEntity(billsService.create(bill), HttpStatus.CREATED)
 
     @GetMapping("/{id}")
-    fun get(id: Int): ResponseEntity<Bill?> =
+    fun get(@PathVariable id: Int): ResponseEntity<Bill?> =
             ResponseEntity(billsService.findById(id), HttpStatus.OK)
 
     @PutMapping("/{id}")
-    fun update(@RequestBody bill: Bill, id: Int): ResponseEntity<Bill> =
+    fun update(@RequestBody bill: Bill, @PathVariable id: Int): ResponseEntity<Bill> =
             ResponseEntity(billsService.update(bill.copy(id = id)), HttpStatus.OK)
 
     @DeleteMapping("/{id}")
-    fun delete(id: Int): ResponseEntity<Any> =
+    fun delete(@PathVariable id: Int): ResponseEntity<Any> =
             billsService.delete(id).run {
                 ResponseEntity(HttpStatus.NO_CONTENT)
             }
