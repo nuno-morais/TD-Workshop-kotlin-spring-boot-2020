@@ -27,6 +27,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	runtimeOnly("com.h2database:h2")
 	testRuntimeOnly("com.h2database:h2")
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
+
 
 
 	// Tests
@@ -39,6 +41,8 @@ dependencies {
 	testImplementation("org.mockito:mockito-core:3.6.28")
 	testImplementation("org.mockito:mockito-inline:3.6.28")
 	testImplementation("com.nhaarman:mockito-kotlin:1.6.0")
+	testImplementation("org.springframework.amqp:spring-rabbit-test")
+
 }
 
 tasks.withType<KotlinCompile> {
