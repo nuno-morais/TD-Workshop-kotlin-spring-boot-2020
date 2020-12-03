@@ -6,8 +6,7 @@ data class Bill(
 	val price: Int,
 	val accountId: String
 ) {
-	override fun toString() =
-		String.format("ToDo(" +
-			"id=%d, description='%s', price=%d, user_id='%s'" +
-			")", id, description, price, accountId)
+	override fun toString(): String {
+		return "Bill(id=$id, description='$description', price=$price, accountId='$accountId')"
+	}
 }
