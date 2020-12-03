@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service
 
 @Service
 class BillsService(
-        private val BillsRepositoryImpl: BillsRepository
+        private val Bananas: BillsRepository
 ) {
-    fun findById(id: Int): Bill = BillsRepositoryImpl.findById(id).orElseThrow {
+    fun findById(id: Int): Bill = Bananas.findById(id).orElseThrow {
         NotFoundException()
     }
 
-    fun findAll() = BillsRepositoryImpl.findAll()
+    fun findAll() = Bananas.findAll()
 
     fun delete(id: Int) {
-        findById(id).run { BillsRepositoryImpl.deleteById(id) }
+        findById(id).run { Bananas.deleteById(id) }
 
     }
 
-    fun create(bill: Bill): Bill = BillsRepositoryImpl.save(bill)
+    fun create(bill: Bill): Bill = Bananas.save(bill)
 
-    fun update(bill: Bill): Bill = findById(bill.id!!).run { BillsRepositoryImpl.save(bill) }
+    fun update(bill: Bill): Bill = findById(bill.id!!).run { Bananas.save(bill) }
 }
