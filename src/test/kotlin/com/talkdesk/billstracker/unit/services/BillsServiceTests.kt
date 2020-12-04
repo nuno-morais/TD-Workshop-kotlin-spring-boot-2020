@@ -7,6 +7,7 @@ import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import com.talkdesk.billstracker.entities.Bill
 import com.talkdesk.billstracker.exceptions.NotFoundException
+import com.talkdesk.billstracker.gateway.BillsPublisher
 import com.talkdesk.billstracker.repositories.BillsRepository
 import com.talkdesk.billstracker.services.BillsService
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -17,7 +18,8 @@ import java.util.Optional
 
 object BillsServiceTests : Spek({
 	val repository = mock<BillsRepository>()
-	val subject = BillsService(repository)
+	val emitLogDirect = mock<BillsPublisher>()
+	val subject = BillsService(repository, emitLogDirect)
 
 	describe("#findAll") {
 		it("should return the list of bills") {

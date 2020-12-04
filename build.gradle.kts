@@ -29,6 +29,10 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	testRuntimeOnly("com.h2database:h2")
 
+	// RabbitMQ
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
+	testImplementation("org.springframework.amqp:spring-rabbit-test")
+
 	// Tests
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
